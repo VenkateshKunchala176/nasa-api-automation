@@ -1,1 +1,74 @@
+{
+  "info": {
+    "name": "NASA API Tests",
+    "_postman_id": "abc12345-6789-1234-5678-abcdef123456",
+    "description": "API test collection for NASA's open APIs using Postman",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "APOD - Astronomy Picture of the Day",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "https://api.nasa.gov/planetary/apod?api_key={{api_key}}&date={{date}}",
+          "host": ["https://api.nasa.gov"],
+          "path": ["planetary", "apod"],
+          "query": [
+            { "key": "api_key", "value": "{{api_key}}" },
+            { "key": "date", "value": "{{date}}" }
+          ]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "pm.test(\"Response has title\", function () {",
+              "    pm.expect(pm.response.json()).to.have.property(\"title\");",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ]
+    },
+    {
+      "name": "NeoWs - Near Earth Object Feed",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "https://api.nasa.gov/neo/rest/v1/feed?start_date={{start_date}}&end_date={{end_date}}&api_key={{api_key}}",
+          "host": ["https://api.nasa.gov"],
+          "path": ["neo", "rest", "v1", "feed"],
+          "query": [
+            { "key": "start_date", "value": "{{start_date}}" },
+            { "key": "end_date", "value": "{{end_date}}" },
+            { "key": "api_key", "value": "{{api_key}}" }
+          ]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "pm.test(\"Contains near_earth_objects\", function () {",
+              "    pm.expect(pm.response.json()).to.have.property(\"near_earth_objects\");",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ]
+    }
+  ]
+}
 
