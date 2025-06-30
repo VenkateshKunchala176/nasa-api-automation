@@ -1,17 +1,5 @@
 # NASA API Automation Project 🚀
 
-This project is a comprehensive API automation test suite for NASA’s open data APIs including:
-- Astronomy Picture of the Day (APOD)
-- Near Earth Object Web Service (NeoWS)
+I built an API automation project using NASA’s open APIs, including the Astronomy Picture of the Day and Near Earth Object services. The test suite was designed using Python and Pytest, with data-driven test cases targeting multiple query parameters like date and celestial body information. To showcase the project, I created and deployed a lightweight dashboard using GitHub Pages—perfect for demonstrating test coverage and giving a visual sneak peek into the automation process.
 
-## 💡 Features
 
-- ✅ Data-driven test cases
-- 🔍 Query parameter validation (e.g., date, celestial body data)
-- 🌐 Lightweight dashboard deployed on GitHub Pages
-
-## 📦 Technologies Used
-
--  Requests 
-- HTML (for dashboard)
-- GitHub Pages (for portfolio hosting)
